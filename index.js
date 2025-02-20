@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: "https://ai-article-generator-frontend.vercel.app/", // Replace with your actual Vercel domain
+    origin: "ai-article-generator-frontend.vercel.app", // Replace with your actual Vercel domain
     methods: ["GET", "POST"],
     credentials: true
 }));
@@ -42,7 +42,7 @@ async function generateArticle(topic, searchResults) {
         return `No relevant search results were found for "${topic}".`;
     }
 
-    const prompt = `Write an informative article on "${topic}" using these sources:\n\n${searchResults
+    const prompt = `Act like a news article writer and write an informative article on "${topic}" using these sources:\n\n${searchResults
         .map((s, i) => `${i + 1}. ${s.title}: ${s.snippet}`)
         .join("\n")}`;
 
