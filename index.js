@@ -6,7 +6,11 @@ const cors = require("cors");
 dotenv.config();
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: "https://ai-article-generator-frontend.vercel.app/", // Replace with your actual Vercel domain
+    methods: ["GET", "POST"],
+    credentials: true
+}));
 
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 const GOOGLE_CSE_ID = process.env.GOOGLE_CSE_ID;
