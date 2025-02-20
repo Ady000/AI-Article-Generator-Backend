@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: "ai-article-generator-frontend.vercel.app", // Replace with your actual Vercel domain
+    origin: "https://ai-article-generator-frontend.vercel.app/", // Replace with your actual Vercel domain
     methods: ["GET", "POST"],
     credentials: true
 }));
